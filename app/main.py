@@ -7,7 +7,6 @@ from app.core.config import get_settings
 
 settings = get_settings()
 
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup tasks: Initialize DB pools, load vector stores, etc.
@@ -34,6 +33,5 @@ def create_application() -> FastAPI:
 
     application.include_router(api_router, prefix=settings.API_V1_PREFIX)
     return application
-
 
 app = create_application()
